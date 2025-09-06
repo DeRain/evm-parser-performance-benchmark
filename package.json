@@ -1,0 +1,35 @@
+{
+  "name": "evm-perf-parser",
+  "version": "1.0.0",
+  "description": "Benchmarks for EVM event parsing: Node viem vs Rust ethabi",
+  "main": "index.js",
+  "scripts": {
+    "build:rust": "cd rust-cli && cargo build --release",
+    "build:napi": "napi build --cwd rust-napi --platform --release",
+    "build:ts": "tsc -p .",
+    "gen": "ts-node src/generate.ts",
+    "bench:js": "ts-node src/bench_viem.ts",
+    "bench:rust": "ts-node src/bench_rust.ts",
+    "bench:napi": "ts-node src/bench_napi.ts",
+    "suite": "ts-node src/suite.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@napi-rs/cli": "^3.1.5",
+    "@types/node": "^24.3.1",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "abitype": "^1.1.0",
+    "viem": "^2.37.3",
+    "zod": "^4.1.5"
+  }
+}
